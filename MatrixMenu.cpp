@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int A[10][10], B[10][10], Sum[10][10],Sub[10][10];
+    int A[10][10], B[10][10], Sum[10][10],Sub[10][10],T[10][10];
     int rows = 0, cols = 0, i, j, choice;
     int matricesCreated = 0; 
 
@@ -11,7 +11,8 @@ int main() {
         printf("\n 2. Display Current Matrices");
         printf("\n 3. Perform Matrix Addition (A + B)");
         printf("\n 4. Perform Matrix Subtraction (A - B)");
-        printf("\n 5. Exit");
+        printf("\n 5. Perform Transpose");
+        printf("\n 6. Exit");
         printf("\n Select an option: ");
         scanf("%d", &choice);
 
@@ -86,17 +87,31 @@ int main() {
                 }
                 break;
 
-            
-
             case 5:
+            	if (!matricesCreated) {
+                    printf("\nError: Please create matrices first (Option 1).");
+                } else {
+                	printf("\nresult of Transpose \n");
+                	for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < cols; j++)
+                    {
+                        T[i][j] = A[j][i];
+                        printf("%d\t", T[i][j]);
+                    }
+                    printf("\n");
+                }
+				}
+            	
+
+            case 6:
                 printf("Exiting program...");
                 break;
 
             default:
                 printf("Invalid choice! Try again.");
         }
-    } while (choice != 5);
+    } while (choice != 6);
 
     return 0;
 }
-
