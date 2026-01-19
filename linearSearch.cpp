@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
-int linearSearch(int* arr, int n, int key) {
-    for (int i = 0; i < n; i++) {
+int lS(int* arr, int a, int key) {
+    for (int i = 0; i < a; i++) {
         if (arr[i] == key) {
             return i;
         }
@@ -10,11 +10,20 @@ int linearSearch(int* arr, int n, int key) {
 }
 
 int main() {
-    int arr[] = { 10, 50, 65, 30, 70, 75,80, 60, 20, 90, 40, 15, 35, 25};
-    int n = sizeof(arr) / sizeof(arr[0]);
+	int a;
+	printf("Size of array:");
+    scanf("%d", &a);
+    printf("\n");
+    int arr[a];
+
+    for (int j = 0; j<a; j++)
+    {
+    	scanf("%d", &arr[j]);
+	}
     int key;
+    printf("Enter Key:");
     scanf("%d",&key);
-    int i = linearSearch(arr, n, key);
+    int i = lS(arr, a, key);
 
     if (i == -1)
         printf("Key Not Found");
