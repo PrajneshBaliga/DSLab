@@ -1,5 +1,5 @@
 #include <stdio.h>
-int binarySearch(int arr[], int size, int target) {
+int bS(int arr[], int size, int target) {
     int low = 0;
     int up = size - 1;
 
@@ -15,6 +15,13 @@ int binarySearch(int arr[], int size, int target) {
         
         else {
             up = mid - 1;
+        }
+        if (arr[mid] > target) {
+            low = mid - 1;
+        }
+        
+        else {
+            up = mid + 1;
         }
     }
 
@@ -50,7 +57,7 @@ int main() {
 	Sort(arr,a);
     printf("Enter Key:");
     scanf("%d",&key);
-    int i = binarySearch(arr, a, key);
+    int i = bS(arr, a, key);
 
     if (i != -1) {
         printf("Key found at index: %d\n", i);
