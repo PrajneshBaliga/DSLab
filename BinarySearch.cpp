@@ -23,8 +23,11 @@ int binarySearch(int arr[], int size, int target) {
 void Sort(int arr[], int a) {
     int i, j;
     for (i = 0; i < a - 1; i++) {
+    	
         for (j = 0; j < a - i - 1; j++) {
+        	
             if (arr[j] > arr[j + 1]) {
+            	
                 int temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
@@ -50,9 +53,9 @@ int main() {
     int i = binarySearch(arr, a, key);
 
     if (i != -1) {
-        printf("Element %d found at index: %d\n", key, i);
+        printf("Key found at index: %d\n", i);
     } else {
-        printf("Element %d not found in the array.\n", key);
+        printf("Key %d not found in the array.\n", key);
     }
 
     return 0;
