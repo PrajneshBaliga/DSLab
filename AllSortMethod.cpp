@@ -8,16 +8,13 @@ void merge(int arr[], int l, int m, int r){
     int n1 = m - l + 1;
     int n2 = r - m;
 
-    // Create temp arrays
     int L[n1], R[n2];
 
-    // Copy data to temp arrays L[] and R[]
     for (i = 0; i < n1; i++)
         L[i] = arr[l + i];
     for (j = 0; j < n2; j++)
         R[j] = arr[m + 1 + j];
 
-    // Merge the temp arrays back into arr[l..r
     i = 0;
     j = 0;
     k = l;
@@ -32,9 +29,8 @@ void merge(int arr[], int l, int m, int r){
         }
         k++;
     }
-
-    // Copy the remaining elements of L[],
-    // if there are any
+    // Copy the remnig elements of L[],
+    // i
     while (i < n1) {
         arr[k] = L[i];
         i++;
@@ -71,6 +67,7 @@ void swap(int* xp, int* yp){
 void bubbleSort(int arr[], int n){
 	
     int i, j;
+    bool swapped;
       for (j = 0; j < n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 swap(&arr[j], &arr[j + 1]);
@@ -146,7 +143,7 @@ void insertionSort(int arr[], int n)
     }
 }
 int main() {
-    int a,c;
+    int a,c,d;
 	printf("Size of array:");
     scanf("%d", &a);
     printf("\n");
@@ -155,21 +152,40 @@ int main() {
     {
     	scanf("%d", &arr[i]);
 	}
+	do{
 	printf("chose your shorting method:");
 	printf("1.Bubble Sort");
-	printf("2.Selection Sort);
-	printf("3.Insertion Sort);
-	printf("4.Merge Sort);
-	printf("5.Quick Sort);
+	printf("2.Selection Sort");
+	printf("3.Insertion Sort");
+	printf("4.Merge Sort");
+	printf("5.Quick Sort");
 	printf("6.Exit");
 	scanf("%d",&c);
 	switch(c){
 		case 1:
-			bubbleSort(arr[],a);
+			bubbleSort(arr,a);
 			break;
+		case 2:
+			selectionSort(arr,a);
+			break;
+		case 3:
+			insertionSort(arr,a);
+			break;
+		case 4:
+			mergeSort(arr,a);
+			break;
+		case 5:
+			quickSort(arr,a);
+			break;
+		case 6:
+			break;		
 	}
 	for (int i = 0; i<a; i++)
     {
     	printf("%d", arr[i]);
 	}
+	printf("continue?");
+	printf("1.Y,2.N");
+	scanf("%d",&d)
+}while(d!=2)
 }
